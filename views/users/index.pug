@@ -3,6 +3,13 @@ html
   head
     title Users
   body
+    h2 Creating a new user
+    form(action="/users/create", method="post")
+      input(type="text", name="username")
+      input(type="text", name="name")
+      input(type="submit")
+
+    h2 Users
     ul#users
       each user in users
         li= user.username
