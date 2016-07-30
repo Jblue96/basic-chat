@@ -13,6 +13,8 @@ app.set('view engine', 'pug');
 app.get('/', function(req, res) {
   res.render('index');
 });
+var users = require('./controllers/users');
+app.use('/users', users);
 
 // socket.io
 io.on('connection', function(socket) {

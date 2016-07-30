@@ -2,12 +2,14 @@
   "name": "basic-chat",
   "version": "0.0.1",
   "description": "Basic chat app using Socket.IO",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.12.4",
     "pg": "^6.0.3",
     "pg-hstore": "^2.3.2",
     "pug": "^2.0.0-beta4",
     "sequelize": "^3.23.6",
-    "socket.io": "^1.4.8"
+    "socket.io": "^1.4.8",
+    "underscore": "^1.8.3"
   }
 }
