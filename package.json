@@ -4,6 +4,7 @@
   "description": "Basic chat app using Socket.IO",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.12.4",
     "mysql": "^2.11.1",
     "pg": "^6.0.3",

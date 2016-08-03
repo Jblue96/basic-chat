@@ -2,12 +2,15 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var port = process.env.PORT || 3000;
+var bodyParser = require('body-parser');
 
 var io = require('socket.io')(http);
 
 // Configure app
 app.set('views', './views');
 app.set('view engine', 'pug');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.get('/', function(req, res) {

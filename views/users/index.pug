@@ -3,13 +3,28 @@ html
   head
     title Users
   body
-    h2 Creating a new user
+    h2 Create User
     form(action="/users/create", method="post")
-      input(type="text", name="username")
-      input(type="text", name="name")
+      .form-group
+        label(for="username") Username:
+        input(type="text", name="username")
+      .form-group
+        label(for="name") Full Name:
+        input(type="text", name="name")
       input(type="submit")
 
     h2 Users
-    ul#users
-      each user in users
-        li= user.username
+
+    table.table
+      thead
+        tr
+          th Username
+          th Full Name
+          th Actions
+      tbody
+        each user in users
+          tr
+            td= user.username
+            td= user.name
+            td
+              a(href="/users/" + user.id + "/destroy") Delete

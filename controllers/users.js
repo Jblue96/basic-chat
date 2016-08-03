@@ -8,4 +8,23 @@ router.get('/', function(req, res) {
   });
 });
 
+router.post('/create', function(req, res) {
+  models.User.create({
+    username: req.body.username,
+    name: req.body.name
+  }).then(function() {
+    res.redirect('/users');
+  });
+});
+
+router.get('/:user_id/destroy', function(req, res) {
+  models.User.destroy({
+    where: {
+      id: req.params.user_id
+    }
+  }).then(function() {
+    res.redirect('/users');
+  });
+});
+
 module.exports = router;
