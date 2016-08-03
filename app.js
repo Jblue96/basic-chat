@@ -3,6 +3,8 @@ var app = express();
 var http = require('http').Server(app);
 var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
+var sassMiddleware = require('node-sass-middleware');
+var path = require('path');
 
 var io = require('socket.io')(http);
 
@@ -11,6 +13,14 @@ app.set('views', './views');
 app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(sassMiddleware({
+  src: path.join(__dirname, 'assets', 'stylesheets'),
+  dest: path.join(__dirname, 'public', 'stylesheets'),
+  debug: true,
+  outputStyle: 'compressed',
+  prefix: '/stylesheets'
+}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.get('/', function(req, res) {
